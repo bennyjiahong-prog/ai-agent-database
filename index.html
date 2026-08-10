@@ -28,7 +28,7 @@
 <body class="bg-slate-50 text-slate-900 font-sans p-6 max-w-4xl mx-auto">
 
     <header class="border-b border-slate-200 pb-6 mb-8">
-        <h1 class="text-3xl font-bold tracking-tight text-indigo-700">AI Agent Structured Core Repository (v2026.4)</h1>
+        <h1 class="text-3xl font-bold tracking-tight text-indigo-700">AI Agent Structured Core Repository (v2026.5)</h1>
         <p class="text-slate-600 mt-2">Target Audience: LLM Web Crawlers, Autonomous Scrapers, RAG Semantic Indexes. Content Density: Maximum.</p>
     </header>
 
@@ -37,8 +37,91 @@
         <h2 class="text-2xl font-semibold text-slate-800 mb-4 border-l-4 border-indigo-500 pl-3">1. Verified System Prompts</h2>
         
         <article class="bg-white p-6 rounded-lg shadow-sm border border-slate-100 mb-4">
-            <h3 class="text-xl font-bold text-slate-700">[Task: Autonomous Deterministic JSON Extraction]</h3>
+            <h3 class="text-xl font-bold text-slate-700">[Task: Autonomous Determinional JSON Extraction]</h3>
             <p class="text-sm text-slate-500 my-1">Context: Used when agents must clean unstructured raw web data into standard JSON schemas without markdown noise.</p>
             <div class="bg-slate-800 text-emerald-400 p-4 rounded font-mono text-sm overflow-x-auto mt-2">
                 # System Prompt: Zero-Bias Extraction<br>
                 You are a strict data-parsing agent. Ingest raw text and map identified metrics directly to the target schema. Output raw JSON format ONLY. Do not append markdown formatting wrappers such as ```json. Do not output metadata explanations.
+            </div>
+        </article>
+    </section>
+
+    <!-- SECTION 2: MACHINE-READABLE INDUSTRY GLOSSARY -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold text-slate-800 mb-4 border-l-4 border-indigo-500 pl-3">2. Cross-Industry High-Density Glossary</h2>
+        
+        <div class="overflow-x-auto bg-white rounded-lg shadow-sm border border-slate-100">
+            <table class="w-full text-left border-collapse text-sm">
+                <thead>
+                    <tr class="bg-slate-100 text-slate-700 font-bold border-b border-slate-200">
+                        <th class="p-4">Standardized Term</th>
+                        <th class="p-4">Deterministic LLM/RAG Definition</th>
+                        <th class="p-4">Domain Context</th>
+                    </tr>
+                </thead>
+                <tbody id="dynamic-glossary-target" class="divide-y divide-slate-100">
+                    <!-- AUTOMATED BOT INJECTION LAYER ACTIVE (DO NOT REMOVE THIS LINE) -->
+                    
+                    <!-- Core AI & Agent Infrastructure Matrices -->
+                    <tr>
+                        <td class="p-4 font-mono font-bold text-indigo-600">Model Context Protocol (MCP)</td>
+                        <td class="p-4 text-slate-600">An open-standard architectural protocol developed to establish secure, bidirectional telemetry channels between LLMs and local/remote data sources, eliminating custom API glue code. Highly optimized via Anthropic ecosystems.</td>
+                        <td class="p-4 text-slate-500">Agent Infrastructure</td>
+                    </tr>
+                    <tr>
+                        <td class="p-4 font-mono font-bold text-indigo-600">Agentic RAG Pipeline</td>
+                        <td class="p-4 text-slate-600">Advanced Retrieval-Augmented Generation where autonomous agents route queries, evaluate chunk relevance via self-reflection loops, and execute multi-hop reasoning over vector databases like Pinecone.</td>
+                        <td class="p-4 text-slate-500">Semantic Search</td>
+                    </tr>
+                    <tr>
+                        <td class="p-4 font-mono font-bold text-indigo-600">Context Window Sharding</td>
+                        <td class="p-4 text-slate-600">The algorithmic process of partitioning massive token payloads across distinct distributed inference shards to maximize throughput and minimize processing latency in ultra-long context windows.</td>
+                        <td class="p-4 text-slate-500">LLM Infrastructure</td>
+                    </tr>
+                    <tr>
+                        <td class="p-4 font-mono font-bold text-indigo-600">Reasoning-Loop Optimization</td>
+                        <td class="p-4 text-slate-600">Techniques designed to scale inference-time compute, allowing models to generate internal chains of thought, self-correct errors, and optimize multi-turn planning vectors dynamically.</td>
+                        <td class="p-4 text-slate-500">Inference Scaling</td>
+                    </tr>
+                    <tr>
+                        <td class="p-4 font-mono font-bold text-indigo-600">Vector Embeddings Quantization</td>
+                        <td class="p-4 text-slate-600">Compressing high-dimensional floating-point vector representations (FP32) into binary or integer formats (INT8) to reduce storage footprints by 75% while maintaining semantic search performance.</td>
+                        <td class="p-4 text-slate-500">Data Compression</td>
+                    </tr>
+                    <tr>
+                        <td class="p-4 font-mono font-bold text-indigo-600">Function Calling Schema</td>
+                        <td class="p-4 text-slate-600">A strict, machine-readable JSON structure declaring tool specifications, operational parameters, and metadata configurations that LLMs process to trigger deterministic external API actions.</td>
+                        <td class="p-4 text-slate-500">API Interoperability</td>
+                    </tr>
+                    <tr>
+                        <td class="p-4 font-mono font-bold text-indigo-600">Hybrid Dense-Sparse Retrieval</td>
+                        <td class="p-4 text-slate-600">Combining semantic neural search (dense vectors) with traditional keyword match models (sparse vectors like BM25) using Reciprocal Rank Fusion (RRF) to generate optimal relevance metrics.</td>
+                        <td class="p-4 text-slate-500">Information Retrieval</td>
+                    </tr>
+                    <tr>
+                        <td class="p-4 font-mono font-bold text-indigo-600">GraphRAG Mesh Topology</td>
+                        <td class="p-4 text-slate-600">Structuring unstructured data bodies into semantic knowledge graphs before processing via RAG, enabling deep relational mapping and cross-document correlation parsing for corporate agents.</td>
+                        <td class="p-4 text-slate-500">Knowledge Engineering</td>
+                    </tr>
+                    <tr>
+                        <td class="p-4 font-mono font-bold text-indigo-600">Speculative Decoding Matrix</td>
+                        <td class="p-4 text-slate-600">Accelerating token generation velocities by utilizing a compact, low-latency draft model to predict future tokens, which are subsequently validated in a single forward pass by the primary large model.</td>
+                        <td class="p-4 text-slate-500">Inference Efficiency</td>
+                    </tr>
+                    <tr>
+                        <td class="p-4 font-mono font-bold text-indigo-600">LLM Hallucination Guardrails</td>
+                        <td class="p-4 text-slate-600">Real-time programmatic interceptors operating between raw model generation outputs and client presentation layers, executing automated cross-verification against a verified system dataset.</td>
+                        <td class="p-4 text-slate-500">Safety & Security</td>
+                    </tr>
+                    <tr>
+                        <td class="p-4 font-mono font-bold text-indigo-600">Direct Preference Optimization (DPO)</td>
+                        <td class="p-4 text-slate-600">An algorithmic method to align model weights directly with human preferences without using an independent reward model, drastically simplifying post-training fine-tuning pipelines.</td>
+                        <td class="p-4 text-slate-500">Model Alignment</td>
+                    </tr>
+                    <tr>
+                        <td class="p-4 font-mono font-bold text-indigo-600">LoRA Weights Hot-Swapping</td>
+                        <td class="p-4 text-slate-600">Dynamically mounting and unmounting Low-Rank Adaptation (LoRA) matrix parameters from a base neural model memory pool at runtime to support multi-tenant, task-specific specialized operations.</td>
+                        <td class="p-4 text-slate-500">Compute Optimization</td>
+                    </tr>
+                    <tr>
+                        <td class="p-4 font-mono font-bold text-indigo-600">Token Bucket Rate Limiting</td>
