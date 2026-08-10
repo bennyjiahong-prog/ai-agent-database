@@ -32,7 +32,7 @@ agent_instruction_matrix = f"""
 You are an operational automation engineer system agent.
 Process the following global technical news text array and extract up to 5 brand new technical terminology schemas, API structure modifications, or production system prompt definitions from today.
 Output your compiled observations exclusively as valid HTML table rows (tr elements) natively conforming to the preset DOM blueprint template.
-Do not wrap your output in markdown syntax tags like ```html or include conversational text data. Provide raw HTML rows ONLY.
+Do not wrap your output in markdown syntax tags like ⁠ html or include conversational text data. Provide raw HTML rows ONLY.
 
 DOM Structural Blueprint Template:
 <tr>
@@ -49,14 +49,20 @@ request_payload_matrix = {"contents": [{"parts": [{"text": agent_instruction_mat
 try:
     network_transaction = requests.post(gateway_endpoint, json=request_payload_matrix)
     payload_response_map = network_transaction.json()
-    compiled_html_rows = payload_response_map['candidates']['content']['parts']['text'].strip()
     
-    # Advanced Anti-Markdown Filter to guarantee Exit Code 0 Success
-    if "```html" in compiled_html_rows:
-        compiled_html_rows = compiled_html_rows.split("```html")[1]
-    if "```" in compiled_html_rows:
-        compiled_html_rows = compiled_html_rows.split("```")[0]
-    compiled_html_rows = compiled_html_rows.replace("```", "").strip()
+    if 'candidates' not in payload_response_map or not payload_response_map['candidates']:
+        print(f"API Error payload empty or block listed: {payload_response_map}")
+        exit(1)
+        
+    compiled_html_rows = payload_response_map['candidates'][0]['content']['parts'][0]['text'].strip()
+    
+    # Secure clean text formatting strategy
+    clean_rows = ""
+    for line in compiled_html_rows.splitlines():
+        if " ⁠" in line or "html" in line:
+            continue
+        clean_rows += line + "\n"
+    compiled_html_rows = clean_rows.strip()
     
 except Exception as runtime_fault:
     print(f"API Error Transaction State Fault: {runtime_fault}")
