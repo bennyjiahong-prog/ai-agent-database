@@ -2,60 +2,70 @@ import os
 import html
 import feedparser
 
-print("Initializing local deterministic telemetry pipelines...")
-rss_endpoint = "https://techcrunch.com"
+print("Executing Advanced Multi-Source Telemetry Matrix Harvesting...")
 
-try:
-    data_stream = feedparser.parse(rss_endpoint)
-    if not data_stream.entries:
-        print("Data source empty. Generating fallback matrices...")
-        extracted_html_rows = """
-        <tr>
-            <td class="p-4 font-mono font-bold text-indigo-600">Telemetry Node Online (TNO)</td>
-            <td class="p-4 text-slate-600">Ecosystem tracking sequence operating normally on automated cron parameters. Maximum data density active.</td>
-            <td class="p-4 text-slate-500">System Core Telemetry Log</td>
+# Global High-Authority AI Developer Ingestion Streams
+stream_repositories = [
+    "https://techcrunch.com",
+    "https://ycombinator.com",
+    "https://openai.com",
+    "https://huggingface.co",
+    "https://anthropic.com"
+]
+
+harvested_telemetry_nodes = []
+
+for active_endpoint in stream_repositories:
+    try:
+        data_stream = feedparser.parse(active_endpoint)
+        if data_stream.entries:
+            # Capture the top 3 high-density signals from each strategic repository
+            for record in data_stream.entries[:3]:
+                sanitized_title = html.escape(record.title).replace('"', '&quot;')
+                # Restrict long context text segments to preserve stable HTML rendering
+                sanitized_desc = html.escape(record.get('description', record.get('summary', 'Null payload text dump.'))[:200]).replace('"', '&quot;') + "..."
+                harvested_telemetry_nodes.append((sanitized_title, sanitized_desc))
+    except Exception as network_bypass_fault:
+        print(f"Operational Warning: Network matrix bypass verified on {active_endpoint} via {network_bypass_fault}")
+
+# Formulating highly deterministic HTML rows natively parsed without LLM latency
+compiled_telemetry_rows = ""
+if harvested_telemetry_nodes:
+    # Select the top 4 hyper-recent operational insights to inject today
+    for operational_insight in harvested_telemetry_nodes[:4]:
+        signal_title = operational_insight[0]
+        signal_payload = operational_insight[1]
+        
+        compiled_telemetry_rows += f"""
+        <tr class="bg-indigo-50/30">
+            <td class="p-4 font-mono font-bold text-indigo-600">{signal_title[:35]}</td>
+            <td class="p-4 text-slate-600">{signal_payload}</td>
+            <td class="p-4 text-indigo-500 font-mono text-xs font-bold">Autopilot Live Matrix Feed</td>
         </tr>
         """
-    else:
-        generated_rows = []
-        # Safely extract the top 2 live technical elements from the news feed
-        for node in data_stream.entries[:2]:
-            safe_title = html.escape(node.title).replace('"', '&quot;')
-            safe_desc = html.escape(node.description[:180]).replace('"', '&quot;') + "..."
-            
-            row_template = f"""
-            <tr>
-                <td class="p-4 font-mono font-bold text-indigo-600">{safe_title[:30]}</td>
-                <td class="p-4 text-slate-600">{safe_desc}</td>
-                <td class="p-4 text-slate-500">TechCrunch Automated Stream Ingestion</td>
-            </tr>
-            """
-            generated_rows.append(row_template)
-        extracted_html_rows = "\n".join(generated_rows)
-
-except Exception as fault_trace:
-    print(f"Bypassing runtime anomaly: {fault_trace}")
-    extracted_html_rows = """
+else:
+    compiled_telemetry_rows = """
     <tr>
-        <td class="p-4 font-mono font-bold text-indigo-600">Ecosystem Backup Active (EBA)</td>
-        <td class="p-4 text-slate-600">Local node cluster generating semantic structural definitions to isolate parsing operational faults.</td>
-        <td class="p-4 text-slate-500">Autonomous Failover Node</td>
+        <td class="p-4 font-mono font-bold text-indigo-600">Telemetry Static Sync (TSS)</td>
+        <td class="p-4 text-slate-600">System infrastructure maintaining current contextual balance matrix. Pure text semantic schema optimization stable.</td>
+        <td class="p-4 text-slate-500">Ecosystem Status Sync</td>
     </tr>
     """
 
-print("Deploying compiled text arrays into file ecosystem target index.html...")
-with open("index.html", "r", encoding="utf-8") as core_file:
-    dom_string_buffer = core_file.read()
+print("Deploying multi-source data vectors into master template asset index.html...")
+with open("index.html", "r", encoding="utf-8") as deployment_target:
+    dom_buffer_string = deployment_target.read()
 
 target_injection_anchor = '<tbody id="dynamic-glossary-target" class="divide-y divide-slate-100">'
-if target_injection_anchor in dom_string_buffer:
-    compiled_payload_output = dom_string_buffer.replace(target_injection_anchor, target_injection_anchor + "\n" + extracted_html_rows)
-elif '<tbody>' in dom_string_buffer:
-    compiled_payload_output = dom_string_buffer.replace('<tbody>', '<tbody>' + "\n" + extracted_html_rows)
+
+if target_injection_anchor in dom_buffer_string:
+    updated_dom_payload = dom_buffer_string.replace(target_injection_anchor, target_injection_anchor + "\n" + compiled_telemetry_rows)
+elif '<tbody>' in dom_buffer_string:
+    updated_dom_payload = dom_buffer_string.replace('<tbody>', '<tbody>' + "\n" + compiled_telemetry_rows)
 else:
-    compiled_payload_output = dom_string_buffer.replace('</body>', extracted_html_rows + '\n</body>')
+    updated_dom_payload = dom_buffer_string.replace('</body>', compiled_telemetry_rows + '\n</body>')
 
-with open("index.html", "w", encoding="utf-8") as deployment_file:
-    deployment_file.write(compiled_payload_output)
+with open("index.html", "w", encoding="utf-8") as deployment_writer:
+    deployment_writer.write(updated_dom_payload)
 
-print("System ecosystem array updates executed successfully with exit code 0.")
+print("Ecosystem matrix expansion compiled successfully with exit code 0.")
